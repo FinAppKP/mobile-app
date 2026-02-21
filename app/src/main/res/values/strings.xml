@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">FinApp</string>
+
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="confirm_password">Повторите пароль</string>
+    <string name="register">Зарегистрироваться</string>
+
+    <string name="fill_all_fields">Заполните все поля</string>
+    <string name="invalid_email">Введите корректный email</string>
+    <string name="password_length_error">Пароль должен быть не менее 8 символов</string>
+    <string name="password_format_error">Пароль должен содержать буквы и цифры</string>
+    <string name="passwords_not_match">Пароли не совпадают</string>
+    <string name="registration_success">Регистрация успешна!</string>
+</resources>
