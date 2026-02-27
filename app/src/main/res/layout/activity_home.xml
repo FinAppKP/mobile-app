@@ -3,19 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="24dp">
 
     <TextView
+        android:id="@+id/tvEmpty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Вы вошли"
-        android:textSize="24sp"/>
+        android:text="Нет операций"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnAddTransaction"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Выйти"
-        android:layout_marginTop="20dp"/>
+        android:text="Добавить операцию"
+        android:layout_marginTop="24dp"/>
 
 </LinearLayout>

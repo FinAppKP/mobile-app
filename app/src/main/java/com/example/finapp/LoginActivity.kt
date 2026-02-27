@@ -25,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
             val password = etPassword.text.toString()
 
             if (dbHelper.loginUser(email, password)) {
-                startActivity(Intent(this, HomeActivity::class.java))
+                startActivity(Intent(this, GetStartedActivity::class.java))
                 finish()
             } else {
                 Toast.makeText(this, "Неверный логин или пароль", Toast.LENGTH_SHORT).show()
