@@ -24,8 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <!-- КНОПКИ ТИПОВ -->
-
+        <!-- Кнопки типов -->
         <Button
             android:id="@+id/btnIncome"
             android:layout_width="match_parent"
@@ -62,6 +61,7 @@
             android:backgroundTint="#E8F2FF"
             android:layout_marginTop="8dp"/>
 
+        <!-- Сумма -->
         <EditText
             android:id="@+id/etAmount"
             android:layout_width="match_parent"
@@ -70,7 +70,28 @@
             android:inputType="numberDecimal"
             android:layout_marginTop="24dp"/>
 
-        <!-- Способ оплаты (по умолчанию скрыт) -->
+        <!-- Категория -->
+        <TextView
+            android:text="Категория"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Spinner
+            android:id="@+id/spinnerCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
+
+        <Button
+            android:id="@+id/btnAddCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Добавить категорию"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Способ оплаты (скрыт по умолчанию) -->
         <LinearLayout
             android:id="@+id/layoutPaymentMethod"
             android:layout_width="match_parent"
@@ -103,6 +124,7 @@
             </RadioGroup>
         </LinearLayout>
 
+        <!-- Сохранить -->
         <Button
             android:id="@+id/btnSaveTransaction"
             android:layout_width="match_parent"
@@ -111,5 +133,4 @@
             android:layout_marginTop="24dp"/>
 
     </LinearLayout>
-
 </ScrollView>

@@ -7,14 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var dbHelper: DBHelper
     private lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        dbHelper = DBHelper(this)
         sessionManager = SessionManager(this)
 
         val etEmail = findViewById<EditText>(R.id.etEmail)
@@ -31,18 +29,20 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Проверка логина через DBHelper
-            if (dbHelper.loginUser(email, password)) {
-                // ✅ Сохраняем сессию
-                sessionManager.loginUser(email)
+            ApiClient.login(email, password) { token ->
 
-                // Переход на HomeActivity
-                val intent = Intent(this, HomeActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
-                finish()
-            } else {
-                Toast.makeText(this, "Неверный логин или пароль", Toast.LENGTH_SHORT).show()
+                runOnUiThread {
+                    if (token != null) {
+                        sessionManager.saveToken(token)
+
+                        val intent = Intent(this, HomeActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        Toast.makeText(this, "Неверный логин или пароль", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
         }
 
