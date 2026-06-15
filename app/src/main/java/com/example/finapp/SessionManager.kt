@@ -10,12 +10,14 @@ class SessionManager(context: Context) {
 
     companion object {
         private const val KEY_TOKEN = "auth_token"
+        private const val KEY_USER = "user_key"
     }
 
     // Сохраняем токен
-    fun saveToken(token: String) {
+    fun saveToken(token: String, userKey: String = "") {
         prefs.edit().apply {
             putString(KEY_TOKEN, token)
+            if (userKey.isNotBlank()) putString(KEY_USER, userKey.lowercase())
             apply()
         }
     }
@@ -23,6 +25,10 @@ class SessionManager(context: Context) {
     // Получаем токен
     fun getToken(): String? {
         return prefs.getString(KEY_TOKEN, null)
+    }
+
+    fun getUserKey(): String {
+        return prefs.getString(KEY_USER, null) ?: getToken().orEmpty().take(16).ifBlank { "guest" }
     }
 
     // Проверяем авторизацию

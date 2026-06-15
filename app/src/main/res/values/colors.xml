@@ -2,4 +2,26 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="app_background">#F5F6F8</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="text_primary">#182231</color>
+    <color name="text_secondary">#6E7786</color>
+    <color name="text_on_accent_secondary">#D8E0EA</color>
+
+    <color name="accent_deep">#293B52</color>
+    <color name="accent_soft">#E7ECF3</color>
+    <color name="button_secondary_stroke">#C8D1DC</color>
+    <color name="auth_primary">#263A50</color>
+    <color name="auth_secondary">#F8FAFC</color>
+
+    <color name="income">#2E7D5B</color>
+    <color name="income_surface">#F1F7F4</color>
+    <color name="wallet">#45658F</color>
+    <color name="wallet_surface">#F2F5F9</color>
+    <color name="expense">#B65A52</color>
+    <color name="expense_surface">#FBF4F2</color>
+    <color name="goal_empty">#F5CB78</color>
+    <color name="goal_progress">#F2B63D</color>
+    <color name="goal_icon">#FFFFFF</color>
 </resources>

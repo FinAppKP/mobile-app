@@ -3,7 +3,10 @@ package com.example.finapp
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class RegisterActivity : AppCompatActivity() {
@@ -24,10 +27,8 @@ class RegisterActivity : AppCompatActivity() {
         btnRegister = findViewById(R.id.btnRegister)
         tvLogin = findViewById(R.id.tvLogin)
 
-        btnRegister.setOnClickListener {
-            registerUser()
-        }
-
+        btnRegister.backgroundTintList = null
+        btnRegister.setOnClickListener { registerUser() }
         tvLogin.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
@@ -35,7 +36,6 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun registerUser() {
-
         val email = etEmail.text.toString().trim()
         val password = etPassword.text.toString().trim()
         val confirmPassword = etConfirmPassword.text.toString().trim()
@@ -51,7 +51,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         if (password.length < 8) {
-            etPassword.error = "Пароль должен быть не менее 8 символов"
+            etPassword.error = "Пароль должен быть не короче 8 символов"
             return
         }
 
@@ -61,11 +61,9 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         ApiClient.register(email, password) { success ->
-
             runOnUiThread {
                 if (success) {
                     Toast.makeText(this, "Регистрация успешна", Toast.LENGTH_SHORT).show()
-
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                 } else {
